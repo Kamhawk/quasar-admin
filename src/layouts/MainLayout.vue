@@ -1,7 +1,7 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
-      <q-toolbar>
+      <q-toolbar class="bg-primary">
         <q-btn
           flat
           dense
@@ -10,8 +10,13 @@
           icon="menu"
           aria-label="Menu"
         />
+
+        <q-avatar to="/" size="28px">
+          <img src="https://cdn.quasar.dev/app-icons/icon-128x128.png" />
+        </q-avatar>
+        
         <q-toolbar-title>
-          Quasar App
+          AllMed Platform
         </q-toolbar-title>
         <q-space/>
         <div class="q-gutter-sm row items-center no-wrap">
@@ -19,11 +24,11 @@
                  @click="$q.fullscreen.toggle()"
                  v-if="$q.screen.gt.sm">
           </q-btn>
-          <q-btn round dense flat color="white" icon="fab fa-github" type="a" href="https://github.com/pratik227/quasar-admin" target="_blank">
+          <!-- <q-btn round dense flat color="white" icon="fab fa-github" type="a" href="https://github.com/pratik227/quasar-admin" target="_blank">
           </q-btn>
           <q-btn round dense flat icon="fas fa-heart" style="color:#9d4182 !important;" type="a" href="https://github.com/sponsors/pratik227" target="_blank">
-          </q-btn>
-          <q-btn round dense flat color="white" icon="notifications">
+          </q-btn> -->
+          <!-- <q-btn round dense flat color="white" icon="notifications">
             <q-badge color="red" text-color="white" floating>
               5
             </q-badge>
@@ -37,8 +42,8 @@
                 </q-card>
               </q-list>
             </q-menu>
-          </q-btn>
-          <q-btn round flat>
+          </q-btn> -->
+          <q-btn to="/Profile" round flat>
             <q-avatar size="26px">
               <img src="https://cdn.quasar.dev/img/boy-avatar.png">
             </q-avatar>
@@ -59,7 +64,7 @@
             <q-icon name="dashboard"/>
           </q-item-section>
           <q-item-section>
-            <q-item-label>Dashboard</q-item-label>
+            <q-item-label>Medical Dashboard</q-item-label>
           </q-item-section>
         </q-item>
         <q-item to="/Dashboard2" active-class="q-item-no-link-highlighting">
@@ -67,10 +72,10 @@
             <q-icon name="dashboard"/>
           </q-item-section>
           <q-item-section>
-            <q-item-label>CRM Dashboard</q-item-label>
+            <q-item-label>Business Dashboard</q-item-label>
           </q-item-section>
         </q-item>
-        <q-expansion-item
+        <!-- <q-expansion-item
           icon="pages"
           label="Pages"
         >
@@ -125,8 +130,8 @@
               </q-item-section>
             </q-item>
           </q-list>
-        </q-expansion-item>
-        <q-expansion-item
+        </q-expansion-item> -->
+        <!-- <q-expansion-item
           icon="map"
           label="Maps"
         >
@@ -156,9 +161,33 @@
               </q-item-section>
             </q-item>
           </q-list>
+        </q-expansion-item> -->
+
+
+        <q-expansion-item
+        icon="accessible"
+        label="Patient">
+          <q-list class="q-pl-lg">
+            <q-item to="/AddPatient" active-class="q-item-no-link-highlighting">
+              <q-item-section avatar>
+                <q-icon name="people"/>
+              </q-item-section>
+              <q-item-section>
+                <q-item-label>Ajouter un patient</q-item-label>
+              </q-item-section>
+            </q-item>
+            <q-item to="/ListPatient" active-class="q-item-no-link-highlighting">
+              <q-item-section avatar>
+                <q-icon name="people"/>
+              </q-item-section>
+              <q-item-section>
+                <q-item-label>Liste des patients</q-item-label>
+              </q-item-section>
+            </q-item>
+          </q-list>
         </q-expansion-item>
 
-        <q-item to="/Mail" active-class="q-item-no-link-highlighting">
+        <!-- <q-item to="/Mail" active-class="q-item-no-link-highlighting">
           <q-item-section avatar>
             <q-icon name="email"/>
           </q-item-section>
@@ -189,15 +218,15 @@
           <q-item-section>
             <q-item-label>Cards</q-item-label>
           </q-item-section>
-        </q-item>
-        <q-item to="/Tables" active-class="q-item-no-link-highlighting">
+        </q-item> -->
+        <!-- <q-item to="/Tables" active-class="q-item-no-link-highlighting">
           <q-item-section avatar>
             <q-icon name="table_chart"/>
           </q-item-section>
           <q-item-section>
             <q-item-label>Tables</q-item-label>
           </q-item-section>
-        </q-item>
+        </q-item> -->
         <q-item to="/Contact" active-class="q-item-no-link-highlighting">
           <q-item-section avatar>
             <q-icon name="person"/>
@@ -206,14 +235,14 @@
             <q-item-label>Contact</q-item-label>
           </q-item-section>
         </q-item>
-        <q-item to="/Checkout" active-class="q-item-no-link-highlighting">
+        <!-- <q-item to="/Checkout" active-class="q-item-no-link-highlighting">
           <q-item-section avatar>
             <q-icon name="check_circle_outline"/>
           </q-item-section>
           <q-item-section>
             <q-item-label>Checkout</q-item-label>
           </q-item-section>
-        </q-item>
+        </q-item> -->
         <q-item to="/Calendar" active-class="q-item-no-link-highlighting">
           <q-item-section avatar>
             <q-icon name="date_range"/>
@@ -230,23 +259,23 @@
             <q-item-label>Taskboard</q-item-label>
           </q-item-section>
         </q-item>
-        <q-item to="/Pagination" active-class="q-item-no-link-highlighting">
+        <!-- <q-item to="/Pagination" active-class="q-item-no-link-highlighting">
           <q-item-section avatar>
             <q-icon name="date_range"/>
           </q-item-section>
           <q-item-section>
             <q-item-label>Pagination</q-item-label>
           </q-item-section>
-        </q-item>
-        <q-item to="/Ecommerce" active-class="q-item-no-link-highlighting">
+        </q-item> -->
+        <!-- <q-item to="/Ecommerce" active-class="q-item-no-link-highlighting">
           <q-item-section avatar>
             <q-icon name="shopping_cart"/>
           </q-item-section>
           <q-item-section>
             <q-item-label>Product Catalogues</q-item-label>
           </q-item-section>
-        </q-item>
-        <q-expansion-item
+        </q-item> -->
+        <!-- <q-expansion-item
           icon="menu_open"
           label="Menu Levels"
         >
@@ -280,7 +309,7 @@
               </q-item>
             </q-expansion-item>
           </q-expansion-item>
-        </q-expansion-item>
+        </q-expansion-item> -->
       </q-list>
     </q-drawer>
 
@@ -291,21 +320,21 @@
 </template>
 
 <script>
-    import EssentialLink from 'components/EssentialLink'
-    import Messages from "./Messages";
+import EssentialLink from 'components/EssentialLink'
+import Messages from "./Messages";
 
-    export default {
-        name: 'MainLayout',
+export default {
+    name: 'MainLayout',
 
-        components: {
-            Messages,
-            EssentialLink
-        },
+    components: {
+        Messages,
+        EssentialLink
+    },
 
-        data() {
-            return {
-                leftDrawerOpen: false,
-            }
+    data() {
+        return {
+            leftDrawerOpen: false,
         }
     }
+}
 </script>

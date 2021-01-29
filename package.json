@@ -3,10 +3,11 @@
   "version": "0.0.1",
   "description": "A Quasar Framework app",
   "productName": "Quasar Admin",
-  "author": "pratikpatelpp802@gmail.com",
+  "author": "kamhawkeye@gmail.com",
   "private": true,
   "scripts": {
-    "test": "echo \"No test specified\" && exit 0"
+    "test": "echo \"No test specified\" && exit 0",
+    "dev": "quasar dev"
   },
   "dependencies": {
     "@quasar/extras": "^1.9.13",
