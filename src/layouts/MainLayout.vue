@@ -11,6 +11,8 @@
           aria-label="Menu"
         />
 
+        <q-space/>
+        
         <q-avatar to="/" size="28px">
           <img src="https://cdn.quasar.dev/app-icons/icon-128x128.png" />
         </q-avatar>
