@@ -84,19 +84,19 @@
             <div class="row">
               <div class="col-6">
                 <q-item>
-                  <q-input dense outlined class="full-width" v-model="card_detail.name" label="Name on Card*"/>
+                  <q-input dense outlined class="full-width" v-model="card_detail.name" label="Nom de l'assurance *"/>
                 </q-item>
               </div>
               <div class="col-6">
                 <q-item>
                   <q-input dense outlined class="full-width" v-model="address_detail.card_number"
-                           label="Card Number *"/>
+                           label="Type d'assurance *"/>
                 </q-item>
               </div>
               <div class="col-6">
                 <q-item>
                   <q-input dense autogrow outlined v-model="address_detail.expiry_date" class="full-width"
-                           label="Expiry Date *"/>
+                           label="Niveau de prestation *"/>
                 </q-item>
               </div>
               <div class="col-6">
@@ -107,7 +107,7 @@
               <div class="col-6">
                 <q-item>
                   <q-checkbox dense outlined class="full-width" v-model="address_detail.checkbox"
-                              label="Remember credit card details for next time"/>
+                              label="Enregistrer cette assurance pour les prochaines fois"/>
                 </q-item>
               </div>
             </div>
@@ -122,7 +122,8 @@
           <q-step
             :name="3"
             title="Demandes spéciales"
-            icon="shopping_cart"
+            icon="brunch_dining"
+            :done="step > 3"
             :header-nav="step > 3"
           >
             <div class="row">
@@ -211,10 +212,108 @@
             </q-card>
 
             <q-stepper-navigation>
-
-              <q-btn rounded @click="done3 = true" class="float-right q-mr-md q-mb-md" color="blue"
-                     label="Valider le patient"/>
+              <q-btn rounded @click="() => { done3 = true; step = 4 }" class="float-right q-mr-md q-mb-md" color="blue"
+                     label="Suivant"/>
               <q-btn flat @click="step = 2" color="primary" flat rounded label="Retour" class="q-mr-sm float-right"/>
+            </q-stepper-navigation>
+          </q-step>
+
+            <q-step
+            :name="4"
+            title="Résumé"
+            icon="shopping_cart"
+            :header-nav="step > 4"
+          >
+            <div class="row">
+              <div class="col-12">
+                <q-item-label header class="text-h6">Order summary</q-item-label>
+                <q-item class="full-width">
+                  <q-item-section>
+                    <q-item-label lines="1">Chambre luxe</q-item-label>
+                    <q-item-label caption>Caption</q-item-label>
+                  </q-item-section>
+                  <q-item-section side>
+                    $100.99
+                  </q-item-section>
+                </q-item>
+                <q-separator></q-separator>
+                <q-item class="full-width">
+                  <q-item-section>
+                    <q-item-label lines="1">Service tout confort</q-item-label>
+                    <q-item-label caption>Caption Product 2</q-item-label>
+                  </q-item-section>
+                  <q-item-section side>
+                    $199.99
+                  </q-item-section>
+                </q-item>
+                <q-separator></q-separator>
+                <q-item class="full-width">
+                  <q-item-section>
+                    <q-item-label lines="1">Repas gastronomique</q-item-label>
+                    <q-item-label caption>Caption Product 3</q-item-label>
+                  </q-item-section>
+                  <q-item-section side>
+                    $78.99
+                  </q-item-section>
+                </q-item>
+                <q-separator></q-separator>
+                <q-item class="full-width">
+                  <q-item-section>
+                    <q-item-label lines="1">Chauffeur privé</q-item-label>
+                    <q-item-label caption>Caption Product 4</q-item-label>
+                  </q-item-section>
+                  <q-item-section side>
+                    $178.99
+                  </q-item-section>
+                </q-item>
+                <q-separator></q-separator>
+
+                <q-item class="full-width">
+                  <q-item-section>
+                    <q-item-label lines="1">Transfert aéroport</q-item-label>
+                  </q-item-section>
+                  <q-item-section side>
+                    Free
+                  </q-item-section>
+                </q-item>
+                <q-separator></q-separator>
+                <q-item class="full-width" style="border-top: 3px dotted blue">
+                  <q-item-section>
+                    <q-item-label lines="1">Total</q-item-label>
+                  </q-item-section>
+                  <q-item-section side>
+                    $2898.96
+                  </q-item-section>
+                </q-item>
+              </div>
+            </div>
+
+            <q-card class="rounded-borders">
+              <q-card-section horizontal>
+                <q-card-section class="col-5 q-pt-xs">
+                  <div class="text-h6 text-center">Shipping</div>
+                  <div class="text-subtitle1 ">Pratik Patel</div>
+                  <div class="text-subtitle2">
+                    4841 Johnston Locks
+                  </div>
+                </q-card-section>
+                <q-card-section class="col-7 q-pt-xs">
+                  <div class="text-h6 text-center">Payment details</div>
+                  <div class="text-subtitle1 q-mb-xs">Card type  - Visa</div>
+                  <div class="text-subtitle1 q-mb-xs">Card holder  - P***ik Patel</div>
+                  <div class="text-subtitle1 q-mb-xs">Card Number  - xxxx-xxxx-xxxx-1234</div>
+                  <div class="text-subtitle1 q-mb-xs">Expiry date - 04/2021</div>
+                </q-card-section>
+
+
+              </q-card-section>
+            </q-card>
+
+            <q-stepper-navigation>
+
+              <q-btn rounded @click="done4 = true" class="float-right q-mr-md q-mb-md" color="blue"
+                     label="Valider le patient"/>
+              <q-btn flat @click="step = 3" color="primary" flat rounded label="Retour" class="q-mr-sm float-right"/>
             </q-stepper-navigation>
           </q-step>
         </q-stepper>
